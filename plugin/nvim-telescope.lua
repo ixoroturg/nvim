@@ -26,8 +26,10 @@ return {
 		local key = vim.keymap.set
 		key("n","<leader>ff",builtin.find_files, {desc = "поиск файла"})
 		key("n","<leader>fg",builtin.live_grep,{desc = "поиск в файлах"})
-		key("n","<leader>fb", builin.buffers, {desc = "буферы"}
-		key("n","<leader>h"), builtin.help_tags, {desc = "помощь"}
-		key("n","<leader>fgb",builtin.git_branches,{desc = "git ветки"})
+		key("n","<leader>fb", builtin.buffers, {desc = "буферы"})
+		key("n","<leader>fh", builtin.help_tags, {desc = "помощь"})
+		key("n","<leader>fgb",builtin.git_branches,{desc = "ветки git"})
+		key("n","<leader>fgc", builtin.git_commits, {desc = "коммиты git"})
+		key("n","<leader>fgs", builtin.git_status,{desc = "статус git"})
 	end
 }
