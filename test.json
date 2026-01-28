@@ -1,0 +1,16 @@
+Content-Length 217
+
+{
+	"jsonrpc":"2.0",
+	"id":1,
+	"method":"textDocument/definition",
+	"params": {
+		"textDocument": {
+			"uri": "file:///home/ixoroturg/.config/nvim/test.lua"
+		},
+		"position": {
+			"line": 0,
+			"character":3
+		}
+	}
+}

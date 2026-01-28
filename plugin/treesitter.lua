@@ -29,6 +29,6 @@ return {
 	submodules = true,
 	module = false,
 	start = function(treesitter)
-		print(treesitter)
+		-- print(treesitter)
 	end
 }

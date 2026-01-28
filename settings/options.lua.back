@@ -70,7 +70,7 @@ vim.opt.cursorcolumn = true -- подсветка колонки курсора
 vim.opt.cursorline = true -- подсветка строки курсора
 vim.opt.cursorlineopt = "screenline,number" -- подсвечивать строку на экране (не разрывную) и числа
 
--- vim.opt.debug = "msg,throw" -- показывать ошибки nvim
+vim.opt.debug = "msg,throw" -- показывать ошибки nvim
 vim.opt.define = "" -- паттерн для поиска объявлений
 vim.opt.delcombine = false -- в UTF-8 удалять только конкретный символ, а не все с ним связанные
 vim.opt.dictionary = "" -- список файлов, в которых ищятся слова для i_ctrl-x ctrl-k
@@ -100,7 +100,7 @@ vim.opt.fileencodings = "ucs-bom,utf-8,default,latin1" -- глобальный f
 vim.opt.fileformats = "unix" -- ставить <NL> как EOL
 vim.opt.fileignorecase = false -- игнорировать регистр имён файлов
 -- vim.opt.filetype = "" -- ручное указание fileType, чтобы стриггерить автокоманду
-vim.opt.fillchars = {eob = " "} -- символы для заполнения вертикальных разрывов, строк состояния и т.д. По умолчанию настроено нормально
+-- vim.opt.fillchars = "" -- символы для заполнения вертикальных разрывов, строк состояния и т.д. По умолчанию настроено нормально
 vim.opt.findfunc = nil -- функция, которая вызывается на :find. Иначе встроенный механизм nvim
 vim.opt.fixendofline = true -- автоматически добавлять <EOL> в конец файла, если его нет
 
@@ -246,7 +246,7 @@ vim.opt.report = 0 -- если ':' команды изменяют больше,
 vim.opt.revins = false -- выключение инвертированного режима
 vim.opt.rightleft = false -- при true показывает текст справо налево
 vim.opt.rightleftcmd = "search" -- какие команды будут работать в режиме rl, при rl = true
-vim.opt.ruler = false -- показывать позицию курсора и относительное местоположение в файле. Не используется, т.к. перезаписывается statusline
+vim.opt.ruler = true -- показывать позицию курсора и относительное местоположение в файле. Не используется, т.к. перезаписывается stl
 -- vim.opt.rulerformat = "%15(%l:%v/%L %p%%%)" -- формат ru. Не используется, т.к. перезаписывается stl
 -- vim.opt.runtimepath = "" -- список директорий, где nvim ищет свои файлы
 vim.opt.scroll = 0 -- 0 - сброс по умолчанию. Указывает на сколько линий перемещать курсор при ctrl+u и ctrl+d
@@ -276,7 +276,7 @@ vim.opt.shellxescape = "" -- какие символы экранировать 
 vim.opt.shiftround = true -- округляет отступ до sw при i_ctrl-t, i_ctrl-d и для >> и <<
 vim.opt.shiftwidth = 4 -- размер отступа
 
-vim.opt.shortmess = "lF" -- опции для сообщений от команд
+vim.opt.shortmess = "l" -- опции для сообщений от команд
 
 vim.opt.showbreak = "↪ " -- какой символ ставится в начале переноса разрывной строки
 vim.opt.showcmd = true -- показывать незаконченные команды типа di, ya
@@ -305,7 +305,7 @@ vim.opt.splitbelow = true -- новое окно появляется снизу
 vim.opt.splitright = true -- новое окно появляется справа, а не снизу
 vim.opt.startofline = true -- при прокручивании страниц переводить курсор на первый не пустой символ строки
 
-vim.opt.statuscolumn = " %l " -- в статусной колонке показывать номер строки
+vim.opt.statuscolumn = "%l " -- в статусной колонке показывать номер строки
 vim.opt.statusline = "%Y:%(%-w %-a%) %-F%( %-h%-m%-r%), под курсором: %-B %=%S %(%l:%v/%L %p%%%)" -- параметры statusline. Примечание: %#highlightGroupName# переключает подсветку до следующей %#hlGroupName#
 vim.opt.suffixes = ".bak,~,.0,.h,.info,.swp,.obj" -- при совпадении имён двух файлов (при неполной записи) эти файлы имеют меньший приоритет
 -- vim.opt.suffixesadd = "" -- gf на слове будет искать файл <слово>suffixesadd
@@ -368,7 +368,7 @@ vim.opt.updatecount = 200 -- после стольких введёных сим
 vim.opt.updatetime = 4000 -- если столько ms ничего не происходит, то swap файл записывается на диск
 vim.opt.varsofttabstop = "" -- числа через запятую. Табы расширяются до указанного количества символов. Для 8,32,8 это означает, что первый таб всегда остановится на 9, второй на 41, а далее табы будут прибавлять по 8. Игнорирует tabsoftstop, использует табы и пробелы в перемешку
 vim.opt.vartabstop = "" -- тот же vartabstop, но использует только табы (я так понимаю вставляет 1 таб и визуально его растягивает)
--- vim.opt.verbose = 0 -- уровень логирования
+vim.opt.verbose = 0 -- уровень логирования
 vim.opt.verbosefile = "/home/ixoroturg/.nvim/verbosefile" -- если указан, то все verbose пишутся в него
 vim.opt.viewdir = "/home/ixoroturg/.nvim/view" -- куда сохранять файлы от :mkview (сохраняет всё от текущего окна)
 vim.opt.viewoptions = "cursor,curdir,folds,options,localoptions,slash,unix" -- что сохранять при :mkview (всё)

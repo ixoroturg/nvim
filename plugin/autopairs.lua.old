@@ -1,0 +1,96 @@
+local cfg = {
+	enabled = function() return true end,
+	enable_check_bracket_line = true,
+	enable_moveright = false,
+	enable_bracket_in_quote = false
+}
+local authorPidoras = function(opts,s,e)
+	if(opts.col < 2) then return false end
+	local prev = opts.line:sub(opts.col - 1,opts.col - 1)
+	return prev == s and opts.char == e
+end
+-- """"
+local authorYeban = function(opts)
+	print(vim.inspect(opts))
+	if(opts.col < 2) then return false end
+	local prev = opts.line:sub(opts.col - 1,opts.col - 1)
+	local preprev = nil
+	if(opts.col > 2) then preprev = opts.line:sub(opts.col - 2, opts.col - 2) end
+	-- local con1 = not (prev == "\"" and opts.next == "\"") 
+	-- local con2 = not (preprev == "\\" and prev == "\"" )
+	-- local con3 = not (prev == "\\" and opts.next == "\"")
+	-- local condition = con1 and con2 and con3
+	-- local condition = (prev ~= "\"" and opts.next ~= "\"") and prev ~= "\\"
+	local con1 = prev == "\""
+	local con2 = prev == "\\"
+	local con3 = opts.next == "\""
+	print(1,con1)
+	print(2,con2)
+	print(3,con3)
+	local condition = not (prev == "\"" or prev == "\\" or opts.next == "\"")
+	print(condition)
+	-- print(condition)
+		return condition
+	-- end
+end
+return {
+	"windwp/nvim-autopairs",
+	-- opts = cfg,
+	config = function()
+		local Rule = require("nvim-autopairs.rule")
+		local npair = require("nvim-autopairs")
+		local cond = require("nvim-autopairs.conds")
+		
+		npair.setup(cfg)
+		
+		npair.add_rules({
+			Rule("(",")"):with_move(
+				function (opts)
+					return authorPidoras(opts, "(",")")
+				end
+			)
+			:with_pair(cond.none())
+			-- :with_pair(cond.not_before_regex("[%\"%'%\\]",1))
+			-- :with_pair(authorYeban)
+			,
+			Rule("{","}"):with_move(
+				function (opts)
+					return authorPidoras(opts, "{","}")
+				end
+			)
+			-- :with_pair(authorYeban)
+			,
+
+			Rule("[","]"):with_move(
+				function (opts)
+					return authorPidoras(opts, "[","]")
+				end
+			)
+			:with_pair(cond.none())
+			,
+			Rule("<",">"):with_move(
+				function (opts)
+					return authorPidoras(opts, "<",">")
+				end
+			)
+			:with_pair(cond.none())
+			,
+			Rule("\"","\""):with_move(
+				function (opts)
+					return authorPidoras(opts, "\"","\"")
+				end
+			)
+			:with_pair(authorYeban)
+			,
+			Rule("'","'"):with_move(
+				function (opts)
+					return authorPidoras(opts, "'","'")
+				end
+			)
+			:with_pair(authorYeban)
+
+		})
+		-- return cfg
+	end
+}
+
