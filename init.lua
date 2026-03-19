@@ -2,6 +2,7 @@ package.path = package.path .. ";/home/ixoroturg/.config/nvim/?.lua;/home/ixorot
 -- vim.opt.verbose = 20
 -- print(vim.inspect(vim.notify))
 -- vim.g.lazydev_enabled = true
+require("startup")
 
 -- require("autocommand/lsp").setup()
 -- require("lsp/java")
@@ -11,7 +12,6 @@ require("lsp/config")
 require("autocommand/usercommand")
 require("settings/options") -- стандартные опции
 -- vim.opt.verbose = 20
-require("lazy-vim")
 require("keymap/keymap")
 -- require("lazydev").setup()
 local themes = require("themes");
