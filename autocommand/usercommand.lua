@@ -10,3 +10,13 @@ vim.api.nvim_create_user_command("ConfigReload", function()
 	-- lsp.diba
 	-- require("lsp/config")
 end, {desc = "Перезагрузка конфига"})
+
+vim.api.nvim_create_autocmd("CursorHold", 
+{
+callback = function()
+	-- print("hover")
+	vim.lsp.buf.hover()
+end
+}
+-- {desc = "hover при наведении"}
+)

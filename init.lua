@@ -1,4 +1,4 @@
-package.path = package.path .. ";/home/ixoroturg/.config/nvim/?.lua;/home/ixoroturg/.config/nvim/?/init.lua"
+package.path = package.path .. ";/home/ixoroturg/.config/nvim/?.lua;/home/ixoroturg/.config/nvim/?/init.lua;./?.lua"
 -- vim.opt.verbose = 20
 -- print(vim.inspect(vim.notify))
 -- vim.g.lazydev_enabled = true
@@ -13,10 +13,12 @@ require("settings/options") -- стандартные опции
 -- vim.opt.verbose = 20
 require("lazy-vim")
 require("keymap/keymap")
-require("themes/ixoroturg")
 -- require("lazydev").setup()
 local themes = require("themes");
 vim.api.nvim_set_hl_ns(themes.default)
+
+require("themes/ixoroturg")
+
 
 
 

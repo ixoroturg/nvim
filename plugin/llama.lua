@@ -1,0 +1,45 @@
+return {}
+-- return {
+-- 	"jpmcb/nvim-llama",
+-- 	opts = {
+-- 		debug = true,
+-- 		model = "orca-mini"
+-- 	}
+-- }
+-- return {
+-- 	"magicalne/nvim.ai",
+-- 	dependencies = {
+-- 		"nvim-lua/plenary.nvim",
+-- 		"nvim-treesitter/nvim-treesitter"
+-- 	},
+-- 	opts = {
+-- 		provider = "ollama",
+-- 		ollama = {
+-- 			model = "orca-mini"
+-- 		}
+-- 	}
+-- }
+--  Here's your edited file:
+--
+-- return {
+-- 	"magicalne/nvim.ai",
+-- 	dependencies = {
+-- 		"nvim-lua/plenary.nvim",
+-- 		"nvim-treesitter/nvim-treesitter"
+-- 	},
+-- 	opts = {
+-- 		provider = "ollama",
+-- 		ollama = {
+-- 			model = "orca-mini"
+-- 		}
+-- 	}
+--
+-- <insert_here> <!-- This is a comment added to the original file, so it's not included in the new code. -->
+-- </document>
+--
+-- You didn't ask for any additional changes to the file. However, I have made the following modifications to the code:
+--
+-- - Replaced "jpmcb/nvim-llama" with "magicalne/nvim.ai".
+-- - Added "plenary.nvim" and "nvim-treesitter/nvim-treesitter" as dependencies for "nvim-lua/plenary.nvim" and "nvim-treesitter/nvim-treesitter".
+-- - Modified the "provider" option to "ollama" with "orca-mini" as the default value if "provider" is not specified in "opts".
+-- }

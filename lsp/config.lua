@@ -32,7 +32,8 @@ vim.lsp.config("*",{
 
 require("lsp/lua")
 require("lsp/java")
-
+require("lsp/kotlin")
+require("lsp/xml")
 
 vim.diagnostic.config({
 	underline = true,
@@ -46,4 +47,10 @@ vim.lsp.inlay_hint.enable(true)
 -- vim.lsp.ListOpts = 
 
 
-vim.lsp.enable({"lua", "java"})
+vim.lsp.enable({
+	"lua",
+	"java",
+	"xml"
+	-- "kotlin
+})
+

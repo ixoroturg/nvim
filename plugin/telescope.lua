@@ -74,7 +74,7 @@ return {
 							}
 						},
 						win_options = {
-							winhighlight = "FloatBorder:Telescope.results"
+							winhighlight = "Normal:Telescope.results"
 							-- winhighlight = "Normal:Telescope.results",
 						}
 					})
@@ -166,6 +166,7 @@ return {
 		key("n","<leader>ce", builtin.diagnostics,{desc = "lsp diagnostics"})
 		key("n","<leader>cws", builtin.lsp_workspace_symbols,{desc = "lsp workspace symbols"})
 		key("n","<leader>cds", builtin.lsp_document_symbols,{desc = "lsp documents symbols"})
+		key("n","<leader>cl", vim.diagnostic.open_float,{desc = "show full lsp diagnostic"})
 
 		key("n","<C-k>",vim.lsp.buf.hover,{desc = "описание"})
 		key("n","<leader>ch",vim.lsp.buf.hover,{desc = "описание"})
