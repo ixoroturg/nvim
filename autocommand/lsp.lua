@@ -2,6 +2,20 @@ local lsp = vim.lsp
 local ac = vim.api.nvim_create_autocmd
 local M = {}
 cfg = {}
+
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	callback = function()
+-- 		print("LSP attached")
+-- 		local client = vim.lsp.get_clients({bufnr = 0});
+-- 		print(client.didChange)
+-- 		print(vim.inspect(client))
+-- 	end
+-- });
+
+-- vim.api.nvim_create_autocmd("InsertLeave");
+
+
 M.setup = function()
 	ac("FileType", {
 		pattern = "lua",

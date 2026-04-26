@@ -4,7 +4,9 @@ local ac = vim.api.nvim_create_autocmd
 
 -- local M = {}
 
-vim.lsp.config("lua", {
+-- vim.lsp.config("lua", 
+
+local cfg = {
 	root_markers = {"init.lua"},
 	cmd = {"lua-language-server"},
 	-- cmd = {"socat", "UNIX-CONNECT:/run/user/1000/lsp/lua.sock","STDIO"},
@@ -76,7 +78,9 @@ vim.lsp.config("lua", {
 		}
 	}
 	
-})
+}
+return cfg;
+-- )
 
 -- local a = function() return nil end
 

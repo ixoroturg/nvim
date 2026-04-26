@@ -171,7 +171,7 @@ return {
 		key("n","<C-k>",vim.lsp.buf.hover,{desc = "описание"})
 		key("n","<leader>ch",vim.lsp.buf.hover,{desc = "описание"})
 
-		key("n","<leader>cr", vim.lsp.buf.rename,{desc = "lsp documents symbols"})
+		key("n","<leader>cr", vim.lsp.buf.rename,{desc = "lsp rename entries"})
 
 	end
 }

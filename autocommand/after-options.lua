@@ -1,0 +1,7 @@
+-- if (vim.bo.filetype == "java") then
+-- 	-- vim.opt.errorformat = "%E\\C[ERROR] %f:[%l,%c] %m"
+-- 	vim.opt.errorformat = "%E[ERROR] %f:%l:%c: %m,%-Z%p^,%-C%.%#"
+-- end
+-- if vim.bo.filetype == "typescriptreact" then
+-- 	vim.bo.filetype = "ts"
+-- end

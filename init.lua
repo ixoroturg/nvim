@@ -3,14 +3,16 @@ package.path = package.path .. ";/home/ixoroturg/.config/nvim/?.lua;/home/ixorot
 -- print(vim.inspect(vim.notify))
 -- vim.g.lazydev_enabled = true
 require("startup")
-
--- require("autocommand/lsp").setup()
+-- local h= "Что-то на русском"
 -- require("lsp/java")
-require("lsp/config")
 -- require("lsp/lua")
 
+require("autocommand/lsp")
+require("lsp/config")
 require("autocommand/usercommand")
 require("settings/options") -- стандартные опции
+require("autocommand/after-options")
+
 -- vim.opt.verbose = 20
 require("keymap/keymap")
 -- require("lazydev").setup()

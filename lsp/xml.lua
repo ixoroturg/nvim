@@ -1,4 +1,5 @@
-vim.lsp.config("xml",{
+-- vim.lsp.config("xml",
+return {
 	root_markers = {".git", "pom.xml", "init.lua","standalone.xml", "jboss-modules.jar", "settings.xml"},
 	filetypes = {"xml"},
 	-- cmd = {"java", "-jar", "/home/ixoroturg/.config/nvim/lsp/ibm-xml-server-all.jar" },
@@ -6,4 +7,4 @@ vim.lsp.config("xml",{
 	name = "xml-ls",
 	settings = {}
 	}
-)
+-- )

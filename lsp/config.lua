@@ -15,7 +15,7 @@ vim.lsp.config("*",{
 	-- handlers = {table<LspMethod>,function(Handler)} -- маппинг кастомных обработчиков для ответов lsp сервера
 	-- init_options = {} -- опции для initialize запроса для lsp
 	-- name = "String" -- имя для логов и человеческого отличия lsp клиентов. По умолчанию client_id
-	offset_encoding = "utf-8", -- кодировка для общения с lsp
+	-- offset_encoding = "utf-8", -- кодировка для общения с lsp
 	-- on_attach = function(Client, bufId)end, -- callback на attach lsp сервера
 	-- on_error = function(IntCode,StrError) -- обработчик ошибок. Может быть много обработчиков
 	-- on_exit = function(IntExitCode, IntSignal,client_id)end, -- обработчик on_exit
@@ -30,13 +30,14 @@ vim.lsp.config("*",{
 	-- root_markers = {""} -- список строк, если найдены эти файлы, то это root_dir. Не используется, если есть root_dir. Можно указать {{"первая проверка", "вторая проверка"}, {"третья проверка"}}
 })
 
+require("lsp/ts")
 require("lsp/lua")
 require("lsp/java")
 require("lsp/kotlin")
 require("lsp/xml")
 
 vim.diagnostic.config({
-	underline = true,
+	underline = false,
 	virtual_text = true,
 	-- virtual_lines = true,
 	signs = true,
@@ -45,12 +46,38 @@ vim.diagnostic.config({
 vim.lsp.inlay_hint.enable(true)
 
 -- vim.lsp.ListOpts = 
+-- print("suka")
+
 
 
 vim.lsp.enable({
 	"lua",
 	"java",
-	"xml"
+	"xml",
+	"typescriptreact"
 	-- "kotlin
 })
 
+-- print("searching... ".. vim.bo.filetype)
+lsp = vim.lsp.config[vim.bo.filetype];
+if(lsp ~= nil) then
+print("Trying to find roots: " .. vim.inspect(lsp.root_markers))
+root = vim.fs.root(0, lsp.root_markers)
+print("Root found: " .. root)
+lsp = vim.deepcopy(lsp)
+-- print(root)
+lsp.root_dir = vim.fn.expand(root);
+-- if vim.bo.filetype == "ts" then
+-- 	local lsp2 =vim.lsp.config["xml"]
+-- 	lsp2 = vim.deepcopy(lsp2);
+-- 	lsp2.root_dir = root;
+-- 	vim.lsp.start(lsp2)
+-- end
+vim.lsp.start(lsp);
+end
+
+
+
+-- print("suka")
+-- if(vim.bo.filetype == "lua") then
+-- 	vim.lsp.start(vim.lsp.get_config("java"))
